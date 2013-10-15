@@ -38,7 +38,7 @@
   <header>
     <div class="container jumbotron">
       <h1><i class="icon-javascript pull-right icon-4x"></i> JavaScript Interpreter-in-a-Bookmarklet</h1>
-      <p> <span>&raquo;</span> <a class="btn-lg btn-info" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()">JS Mini-Shell</a> <span>&laquo;</span> </p>
+      <p> <span>&raquo;</span> <a id="btn1" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()">JS Mini-Shell</a> <span>&laquo;</span> </p>
       <p>Go ahead, click it. You know you want to.</p>
     </div>
   </header>
@@ -48,7 +48,7 @@
   		<div class="col-lg-6">
 			<h1 class="page-header"><a name="Install"></a>Installation</h1>
 			<p>Drag this to your bookmarks toolbar:</p>
-			<p><a class="btn-lg btn-info" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()">JS Mini-Shell</a></p>
+			<p><a id="btn2" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()">JS Mini-Shell</a></p>
 		</div>
 		
 		<div class="col-lg-6">
@@ -101,5 +101,38 @@
 			and <a href="http://www.bootstrapcdn.com/"><i class="icon-maxcdn"></i> Bootstrap CDN</a>.</p>
   	</div>
   </footer>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1735765-27', 'nfriedly.com');
+  ga('send', 'pageview');
+  
+  //http://austinmatzko.com/2008/04/14/addevent-preserving-this/
+	var addEvent = function( obj, type, fn ) {
+			if (obj.addEventListener)
+					obj.addEventListener(type, fn, false);
+			else if (obj.attachEvent)
+					obj.attachEvent('on' + type, function() { return fn.apply(obj, new Array(window.event));});
+	}
+  
+  function wire(id) {
+  	var el = document.getElementById(id);
+  	addEvent(el, 'click', function() {
+  		ga('send', 'event', 'bookmarklet', 'click');
+  	});
+  	addEvent(el, 'dragend', function() {
+  		ga('send', 'event', 'bookmarklet', 'install');
+  	});
+  }
+  
+  wire('btn1'); 
+  wire('btn2');      
+	
+
+</script>
 </body>
 </html>
