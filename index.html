@@ -92,17 +92,17 @@
 			<div class="col-lg-6">
 				<h2>Original JavaScript</h2>
 				<pre><code>function() {
-		var result = "Enter some JavaScript and hit go";
-		var code = prompt(result, '');
-		while (code !== null) {
-			try {
-				result = eval(code);
-			} catch (ex) {
-				result = ex.message;
-			}
-			code = prompt(result, '');
+	var result = "Enter some JavaScript and hit go";
+	var code = prompt(result, '');
+	while (code !== null) {
+		try {
+			result = eval(code);
+		} catch (ex) {
+			result = ex.message;
 		}
-	}</code></pre>
+		code = prompt(result, '');
+	}
+}</code></pre>
 			</div>
 		</div>
 	</section>
