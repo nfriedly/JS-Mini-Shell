@@ -18,6 +18,21 @@
   		footer .container { columns: 3; -webkit-columns: 3; -moz-columns: 3 }
   	}
   </style>
+  
+  <!-- make old versions of Ie behave better -->
+  <!--[if lt IE 9]>
+   <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+   </script>
+   <style type="text/css">
+   	  header, nav, section, article, aside, footer { display:block; }
+   </style>
+<![endif]-->
 </head>
 <body>
 
@@ -138,8 +153,6 @@
   
   wire('btn1'); 
   wire('btn2');      
-	
-
 </script>
 </body>
 </html>
