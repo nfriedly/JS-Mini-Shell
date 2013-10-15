@@ -62,27 +62,33 @@
 	
 	
     
-    <section class="row">
-	    <h1 class="page-header"><a name="Source"></a>Source</h1>
-		<div class="col-lg-6">
-	    	<h2>Bookmarklet Code</h2>
-  <textarea>javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()</textarea>
-  		</div>
-  		
-  		<div class="col-lg-6">
-			<h2>Original JavaScript</h2>
-			<pre><code>function() {
-	var result = "Enter some JavaScript and hit go";
-	var code = prompt(result);
-	while (code !== null) {
-		try {
-			result = eval(code);
-		} catch (ex) {
-			result = ex.message;
+    <section>
+    	<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header"><a name="Source"></a>Source</h1>
+			</div>
+	    </div>
+	    <div class="row">
+			<div class="col-lg-6">
+				<h2>Bookmarklet Code</h2>
+	  <textarea>javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()</textarea>
+			</div>
+		
+			<div class="col-lg-6">
+				<h2>Original JavaScript</h2>
+				<pre><code>function() {
+		var result = "Enter some JavaScript and hit go";
+		var code = prompt(result);
+		while (code !== null) {
+			try {
+				result = eval(code);
+			} catch (ex) {
+				result = ex.message;
+			}
+			code = prompt(result);
 		}
-		code = prompt(result);
-	}
-}</code></pre>
+	}</code></pre>
+			</div>
 		</div>
 	</section>
   </main>
