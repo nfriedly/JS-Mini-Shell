@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Mini-Shell - Siper-Simple JS Interpreter-in-a-Bookmarklet</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css">
+</head>
+<body>
+  <head class="hero">
+    <div id="container">
+      <h1>JS Mini-Shell - Interactive JavaScript Interpreter-in-a-Bookmarklet</h1>
+      <h2>Because the best JavaScript shell is the one you have with you</h2>
+      <h3>(And because sometimes just turning on Developer Tools changes the behavior of the page...)</h3>
+    </div>
+  </head>
+  <main class="container">
+    <h1>Drag this to your bookmarks toolbar:</h1>
+    <a class="btn-lg btn-info" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()">JS Mini-Shell</a>
+    <h2>Bookmarklet URL</h2>
+    <textarea>javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result)%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result)%3B%7D%7D)()</textarea>
+    <h2>Original Source</h2>
+    <pre><code>
+function() {
+    var result = "Enter some JavaScript and hit go";
+    var code = prompt(result);
+    while (code !== null) {
+        try {
+            result = eval(code);
+        } catch (ex) {
+            result = ex.message;
+        }
+        code = prompt(result);
+    }
+}
+    </code></pre>
+  </main>
+  <footer>
+    <p><a href="http://js-mini-shell.nfriedly.com/">JS Mini-Shell</a> 
+      by <a href="http://nfriedly.com/" title="Javascript and Node.JS Expert">Nathan Friedly</a>
+    </p>
+    <p>Built with <a href="http://mrcoles.com/bookmarklet/">MrColes' Bookmarklet Creator</a>.</p>
+    <p><a href="https://github.com/nfriedly/js-mini-shell"><i class="icon-github"></i> Hosted on GitHub</a></p>
+  </footer>
+</body>
+</html>
