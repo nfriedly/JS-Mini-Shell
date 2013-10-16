@@ -2,14 +2,28 @@
 <html>
 <head>
   <title>JS Mini-Shell - Siper-Simple JS Interpreter-in-a-Bookmarklet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
   <link rel="stylesheet" href="font-mfizz-1.2/font-mfizz.css">
   <style type="text/css">
   	.navbar { border-radius: 0; }
   	.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar>.container a.navbar-brand:hover { background-color: #1a242f; }
-  	header .icon-javascript { background-color: #fde62c; color: black; padding: 0 2.5%; border-radius: 5%;}
-  	header span { font-size: 300%; padding: 0 20px; position: relative; top: 11px;}
+  	.nav { display: none; }
+  	@media (min-width: 480px) {
+  		.nav { display: block; }
+  	}
+  	header .icon-javascript { background-color: #fde62c; color: black; padding: 0 2.5%; border-radius: 5%; font-size: 1.6em;}
+  	.bookmarklet-wrapper { text-align: center; }
+  	header span { display: none; }
+  	@media (min-width: 480px) {
+  		header .icon-javascript { font-size: 4em }
+  		header .bookmarklet-wrapper { text-align: left; }
+  		header span { font-size: 300%; padding: 0 20px; position: relative; top: 11px;}
+  		header span { display: inline; }
+  	}
   	.btn-lg { line-height: 5; }
   	textarea { height: 150px; width: 100%; }
   	section p { font-size: 130%; }
@@ -54,8 +68,8 @@
 
   <header>
     <div class="container jumbotron">
-      <h1><i class="icon-javascript pull-right icon-4x"></i> JavaScript Interpreter-in-a-Bookmarklet</h1>
-      <p> <span>&raquo;</span> <a id="btn1" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result%2C%20'')%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result%2C%20code)%3B%7D%7D)()">JS Mini-Shell</a> <span>&laquo;</span> </p>
+      <h1><i class="icon-javascript pull-right"></i> JavaScript Interpreter-in-a-Bookmarklet</h1>
+      <p class="bookmarklet-wrapper"> <span>&raquo;</span> <a id="btn1" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result%2C%20'')%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result%2C%20code)%3B%7D%7D)()">JS Mini-Shell</a> <span>&laquo;</span> </p>
       <p>Go ahead, click it. You know you want to.</p>
     </div>
   </header>
@@ -66,7 +80,7 @@
   		<div class="col-lg-6">
 			<h1 class="page-header"><a name="Install"></a>Installation</h1>
 			<p>Drag this to your bookmarks toolbar:</p>
-			<p><a id="btn2" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result%2C%20'')%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result%2C%20code)%3B%7D%7D)()">JS Mini-Shell</a></p>
+			<p class="bookmarklet-wrapper"><a id="btn2" class="btn-lg btn-info bookmarklet" href="javascript:(function()%7Bvar%20result%20%3D%20%22Enter%20some%20JavaScript%20and%20hit%20go%22%3Bvar%20code%20%3D%20prompt(result%2C%20'')%3Bwhile%20(code%20!%3D%3D%20null)%20%7Btry%20%7Bresult%20%3D%20eval(code)%3B%7D%20catch%20(ex)%20%7Bresult%20%3D%20ex.message%3B%7Dcode%20%3D%20prompt(result%2C%20code)%3B%7D%7D)()">JS Mini-Shell</a></p>
 		</div>
 		
 		<div class="col-lg-6">
@@ -94,16 +108,16 @@
 			<div class="col-lg-6">
 				<h2>Original JavaScript</h2>
 				<pre><code>function() {
-	var result = "Enter some JavaScript and hit go";
-	var code = prompt(result, '');
-	while (code !== null) {
-		try {
-			result = eval(code);
-		} catch (ex) {
-			result = ex.message;
-		}
-		code = prompt(result, code);
-	}
+  var result = "Enter some JavaScript and hit go";
+  var code = prompt(result, '');
+  while (code !== null) {
+    try {
+      result = eval(code);
+    } catch (ex) {
+      result = ex.message;
+    }
+    code = prompt(result, code);
+  }
 }</code></pre>
 			</div>
 		</div>
