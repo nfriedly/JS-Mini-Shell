@@ -35,27 +35,31 @@
   	
   	/* now for the fun stuff! */
   	
-  	nav { animation: slide-in 1s; }
+  	nav { animation: slide-in 1s ease-out; }
   	@keyframes slide-in {
-		from { position: relative; left: 2000px; }
-		to { position: relative; left: 0; }
+		0%   { position: relative; left: 2000px; transform: skewX(-30deg); }
+		100% { position: relative; left: 0; transform: skewX(0);}
 	}
 	
-  	main { animation: fade-in-slide-up 1s; animation-delay: 0.5s; animation-fill-mode: both; }
+  	main { animation: fade-in-slide-up 0.5s ease-out; animation-delay: 0.5s; animation-fill-mode: both; }
 	@keyframes fade-in-slide-up {
-		from { opacity: 0; margin-top: 100px}
-		to { opacity: 1; margin-top: 0; }
+		0%   { opacity: 0; margin-top: 300px}
+		100% { opacity: 1; margin-top: 0; }
 	}
 	
-	// todo: figure out the physics to make this look more accurate
+	/**
+	 * todo: figure out the physics to make this look more accurate
+	 * http://stackoverflow.com/questions/15423736/how-to-get-a-gravity-effect-in-a-css-animation
+	 * or maybe http://daneden.me/animate/ and https://github.com/daneden/animate.css/blob/master/animate.css
+	 */
 	header { perspective: 600px; }
 	.jumbotron { animation: swing-in 2s; transform-origin: 50% 0 0; }
 	@keyframes swing-in {
-		0%   { transform: rotateX(-90deg) }
-		60%  { transform: rotateX(8deg) }
-		80%  { transform: rotateX(-5deg) }
-		90%  { transform: rotateX(2deg) }
-		100% { transform: rotateX(0deg) }
+		0%   { transform: rotate3d(1, 0, 0, 90deg) }
+		25%  { transform: rotate3d(1, 0, 0, -60deg) }
+		50%  { transform: rotate3d(1, 0, 0, 30deg) }
+		75%  { transform: rotate3d(1, 0, 0, -30deg) }
+		100% { transform: rotate3d(1, 0, 0, 0deg) }
 	}
 
   </style>
