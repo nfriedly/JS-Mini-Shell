@@ -19,20 +19,21 @@
   	}
   </style>
   
-  <!-- make old versions of Ie behave better -->
+  <!-- make old versions of IE behave better -->
   <!--[if lt IE 9]>
    <script>
       document.createElement('header');
       document.createElement('nav');
+      document.createElement('main');
       document.createElement('section');
       document.createElement('article');
       document.createElement('aside');
       document.createElement('footer');
    </script>
    <style type="text/css">
-   	  header, nav, section, article, aside, footer { display:block; }
+   	  header, nav, main, section, article, aside, footer { display:block; }
    </style>
-<![endif]-->
+  <![endif]-->
 </head>
 <body>
 
@@ -58,6 +59,7 @@
       <p>Go ahead, click it. You know you want to.</p>
     </div>
   </header>
+  
   <main class="container">
   	
   	<section class="row">
@@ -107,6 +109,7 @@
 		</div>
 	</section>
   </main>
+  
   <footer>
   	<div class="container">
 		<p><a href="http://js-mini-shell.nfriedly.com/">JS Mini-Shell</a> 
