@@ -31,6 +31,33 @@
   	@media (min-width: 480px) {
   		footer .container { columns: 3; -webkit-columns: 3; -moz-columns: 3 }
   	}
+  	
+  	
+  	/* now for the fun stuff! */
+  	
+  	nav { animation: slide-in 1s; }
+  	@keyframes slide-in {
+		from { position: relative; left: 2000px; }
+		to { position: relative; left: 0; }
+	}
+	
+  	main { animation: fade-in-slide-up 1s; animation-delay: 0.5s; animation-fill-mode: both; }
+	@keyframes fade-in-slide-up {
+		from { opacity: 0; margin-top: 100px}
+		to { opacity: 1; margin-top: 0; }
+	}
+	
+	// todo: figure out the physics to make this look more accurate
+	header { perspective: 600px; }
+	.jumbotron { animation: swing-in 2s; transform-origin: 50% 0 0; }
+	@keyframes swing-in {
+		0%   { transform: rotateX(-90deg) }
+		60%  { transform: rotateX(8deg) }
+		80%  { transform: rotateX(-5deg) }
+		90%  { transform: rotateX(2deg) }
+		100% { transform: rotateX(0deg) }
+	}
+
   </style>
   
   <!-- make old versions of IE behave better -->
