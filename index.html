@@ -12,17 +12,20 @@
   	.navbar { border-radius: 0; }
   	.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar>.container a.navbar-brand:hover { background-color: #1a242f; }
   	.nav { display: none; }
-  	@media (min-width: 480px) {
+  	@media (min-width: 768px) {
   		.nav { display: block; }
   	}
   	header .icon-javascript { background-color: #fde62c; color: black; padding: 0 2.5%; border-radius: 5%; font-size: 1.6em;}
   	.bookmarklet-wrapper { text-align: center; }
   	header span { display: none; }
   	@media (min-width: 480px) {
-  		header .icon-javascript { font-size: 4em }
+  		header .icon-javascript { font-size: 3em }
   		header .bookmarklet-wrapper { text-align: left; }
   		header span { font-size: 300%; padding: 0 20px; position: relative; top: 11px;}
   		header span { display: inline; }
+  	}
+  	@media (min-width: 1024px) {
+  		header .icon-javascript { font-size: 4em }
   	}
   	.btn-lg { line-height: 5; }
   	textarea { height: 150px; width: 100%; }
