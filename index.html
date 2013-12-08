@@ -35,14 +35,28 @@
   	
   	/* now for the fun stuff! */
   	
-  	nav { animation: slide-in 1s ease-out; }
+  	nav { 
+  	    animation: slide-in 1s ease-out; -webkit-animation: slide-in 1s ease-out; 
+  	 }
   	@keyframes slide-in {
 		0%   { position: relative; left: 2000px; transform: skewX(-30deg); }
 		100% { position: relative; left: 0; transform: skewX(0);}
 	}
+	@-webkit-keyframes slide-in {
+		0%   { position: relative; left: 2000px; transform: skewX(-30deg); }
+		100% { position: relative; left: 0; transform: skewX(0);}
+	}
 	
-  	main { animation: fade-in-slide-up 0.5s ease-out; animation-delay: 0.5s; animation-fill-mode: both; }
+  	main { 
+  	    animation: fade-in-slide-up 0.5s ease-out;   -webkit-animation: fade-in-slide-up 0.5s ease-out;
+  	    animation-delay: 0.5s;  -webkit-animation-delay: 0.5s;
+  	    animation-fill-mode: both; -webkit-animation-fill-mode: both;
+  	 }
 	@keyframes fade-in-slide-up {
+		0%   { opacity: 0; margin-top: 300px}
+		100% { opacity: 1; margin-top: 0; }
+	}
+	@-webkit-keyframes fade-in-slide-up {
 		0%   { opacity: 0; margin-top: 300px}
 		100% { opacity: 1; margin-top: 0; }
 	}
@@ -52,14 +66,24 @@
 	 * http://stackoverflow.com/questions/15423736/how-to-get-a-gravity-effect-in-a-css-animation
 	 * or maybe http://daneden.me/animate/ and https://github.com/daneden/animate.css/blob/master/animate.css
 	 */
-	header { perspective: 600px; }
-	.jumbotron { animation: swing-in 2s; transform-origin: 50% 0 0; }
+	header { perspective: 600px; -webkit-perspective: 600px; }
+	.jumbotron { 
+	    animation: swing-in 2s; -webkit-animation: swing-in 2s; 
+	    transform-origin: 50% 0 0; -webkit-transform-origin: 50% 0 0;
+	}
 	@keyframes swing-in {
 		0%   { transform: rotate3d(1, 0, 0, 90deg) }
 		25%  { transform: rotate3d(1, 0, 0, -60deg) }
 		50%  { transform: rotate3d(1, 0, 0, 30deg) }
 		75%  { transform: rotate3d(1, 0, 0, -30deg) }
 		100% { transform: rotate3d(1, 0, 0, 0deg) }
+	}
+	@-webkit-keyframes swing-in {
+		0%   { -webkit-transform: rotateX(1, 0, 0, 90deg) }
+		25%  { -webkit-transform: rotate3d(1, 0, 0, -60deg) }
+		50%  { -webkit-transform: rotate3d(1, 0, 0, 30deg) }
+		75%  { -webkit-transform: rotate3d(1, 0, 0, -30deg) }
+		100% { -webkit-transform: rotate3d(1, 0, 0, 0deg) }
 	}
 
   </style>
